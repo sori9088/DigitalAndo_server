@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from .config import Config
-from .models import db
+from .models import db, Issue
 from .cli import create_db
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -20,5 +20,8 @@ migrate = Migrate(app, db)
 
 
 
-# @app.route("/")
-# def 
+@app.route("/getinfo", methods=["POST","GET"])
+def getinfo():
+    return jsonify(
+        {"success":True}
+        )
