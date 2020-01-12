@@ -117,7 +117,7 @@ def send_issue():
         )
         db.session.add(new_issue)
         db.session.commit()
-        issues = Issue.query.all()
+        issues = Issue.query.filter(Issue.status!="done").all()
         
         res = {
             "success": True,
